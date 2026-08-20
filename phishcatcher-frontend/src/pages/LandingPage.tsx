@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-/* ------------------------------------------------------------------ */
-/*  Icons                                                              */
-/* ------------------------------------------------------------------ */
+import { useNavigate } from "react-router-dom";
+
+
+
+
 
 const ShieldIcon = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
@@ -123,6 +125,8 @@ function ScannerPanel() {
 
 export default function PhisGuardLanding() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const navigate = useNavigate();
+  
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#04121c] font-sans text-white">
@@ -246,10 +250,14 @@ export default function PhisGuardLanding() {
           className="pg-in mt-10 flex flex-wrap items-center justify-center gap-4"
           style={{ animationDelay: "240ms" }}
         >
-          <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-sky-500 px-9 py-4 text-base font-bold text-[#04121c] shadow-[0_10px_40px_-8px_rgba(45,212,191,0.8)] transition-transform hover:scale-[1.04] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-200 focus-visible:ring-offset-2 focus-visible:ring-offset-[#04121c]">
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-            <span className="relative">Get started free</span>
-          </button>
+          <button
+  onClick={() => navigate("/scanner")}
+  className="group relative overflow-hidden rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-sky-500 px-9 py-4 text-base font-bold text-[#04121c] shadow-[0_10px_40px_-8px_rgba(45,212,191,0.8)] transition-transform hover:scale-[1.04] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-200 focus-visible:ring-offset-2 focus-visible:ring-offset-[#04121c]"
+>
+  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+
+  <span className="relative">Get Started</span>
+</button>
 
           <button className="rounded-full border border-teal-300/30 bg-white/[0.04] px-9 py-4 text-base font-semibold text-white backdrop-blur-md transition-all hover:border-teal-300/60 hover:bg-white/[0.09] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300">
             Learn more
